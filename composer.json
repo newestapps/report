@@ -1,0 +1,50 @@
+{
+    "name": "newestapps/package-kit",
+    "version": "1.0.0",
+    "description": "Newestapps Package development kit",
+    "homepage": "https://newestapps.com.br",
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Rodrigo Brun",
+            "email": "rodrigotbrun@gmail.com",
+            "homepage": "http://rodrigobrun.com.br",
+            "role": "Developer"
+        },
+        {
+            "name": "Anderson Altissimo",
+            "email": "ander.altissimo@gmail.com",
+            "homepage": "http://andersonaltissimo.com.br",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email" : "contato@newestapps.com.br",
+    },
+    "autoload": {
+        "psr-4": {
+            "Newestapps\\Package\\": "./src/"
+        },
+        "files": [],
+        "classmap": [
+            "database/migrations",
+            "database/seeds"
+        ]
+    },
+    "require": {
+        "php": ">=7.1.0",
+        "laravel/framework": "5.5.*",
+        "newestapps/core": "dev-master"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Newestapps\\Package\\Providers\\PackageServiceProvicer"
+            ],
+            "aliases": {
+            }
+        }
+    }
+}

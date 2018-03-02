@@ -1,6 +1,6 @@
 <?php
 
-namespace Gateway\Http\Controllers;
+namespace Newestapps\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 

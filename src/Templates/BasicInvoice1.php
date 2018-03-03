@@ -10,7 +10,7 @@ use Carbon\Carbon;
 use Newestapps\Report\BaseReport;
 use Picqer\Barcode\BarcodeGenerator;
 
-class BasicInvoice1Report extends BaseReport
+class BasicInvoice1 extends BaseReport
 {
 
     private $customer = [];

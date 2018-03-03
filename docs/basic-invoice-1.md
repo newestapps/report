@@ -7,7 +7,7 @@ OSB: *All options are optional, the template will adjust among all this properti
 ```
     $id = 123456;
 
-    $invoice = new \Newestapps\Report\Templates\BasicInvoice1Report( $id );
+    $invoice = new \Newestapps\Report\Templates\BasicInvoice1( $id );
     $invoice->useNewestappsLogo(); // To use Newestapps Logo..
     
     // Or specify a custom image Path or Url, to use as logo.

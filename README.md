@@ -16,7 +16,7 @@ Just create your own class that extends from `Newestapps\Report\BaseReport`, and
 
 We also provide a basic structure for you to create custom templates (all built-in templates are built in front of this structure). In your view, just extend from our base template `nw-report::layouts.base`, and create a section `content` with your report content. See an example below, with all available formatting settings.
 
-```
+```blade
 @extends('nw-report::layouts.base', [
     // Margins for the document
     'marginLeft' => '20px',

@@ -62,3 +62,11 @@ OSB: *All options are optional, the template will adjust among all this properti
     // $renderedInvoice->outputAsString();  // Gets a full string of your PDF (ideal for directly email attachments, for example)  
     // $renderedInvoice->save($filename = 'invoices/my-invoice.pdf');  // Save your invoice as a file in your '$filename' location, (you can specify a full path for somewhere in your disk)  
 ```
+
+# Demo
+
+![Demo Basic Invoice #1](basic-invoice-1-demo.png)
+
+
+
+

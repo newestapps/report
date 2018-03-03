@@ -4,13 +4,13 @@
  *   with PhpStorm
  */
 
-namespace Newestapps\Package\Providers;
+namespace Newestapps\Report\Providers;
 
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
-class NewestappsServiceProvider extends ServiceProvider
+class ReportServiceProvider extends ServiceProvider
 {
 
     /**
@@ -29,14 +29,14 @@ class NewestappsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../../config/package.php', 'package');
+        $this->mergeConfigFrom(__DIR__.'/../../config/report.php', 'nw-report');
         $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
 
         $this->app->make(Factory::class)->load(__DIR__.'/../../database/factories.php');
 
         $this->publishes([
-            __DIR__.'/../../config/package.php' => config_path('package.php'),
-        ], 'config');
+            __DIR__.'/../../config/report.php' => config_path('nw-report.php'),
+        ], 'newestapps/report');
 
 //        $this->registerRoutes();
     }

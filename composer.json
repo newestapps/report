@@ -1,7 +1,7 @@
 {
-    "name": "newestapps/package-kit",
+    "name": "newestapps/report",
     "version": "1.0.0",
-    "description": "Newestapps Package development kit",
+    "description": "Newestapps reports generator helper",
     "homepage": "https://newestapps.com.br",
     "license": "proprietary",
     "minimum-stability": "dev",
@@ -25,7 +25,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Newestapps\\Package\\": "./src/"
+            "Newestapps\\Report\\": "./src/"
         },
         "files": [],
         "classmap": [
@@ -36,12 +36,13 @@
     "require": {
         "php": ">=7.1.0",
         "laravel/framework": ">=5.5.32",
-        "newestapps/core": "dev-master"
-    }
+        "newestapps/core": "dev-master",
+        "barryvdh/laravel-dompdf": "^0.8.2"
+    },
     "extra": {
         "laravel": {
             "providers": [
-                "Newestapps\\Package\\Providers\\PackageServiceProvider"
+                "Newestapps\\Report\\Providers\\ReportServiceProvider"
             ],
             "aliases": {
             }

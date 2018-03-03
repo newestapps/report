@@ -26,12 +26,7 @@
     "autoload": {
         "psr-4": {
             "Newestapps\\Report\\": "./src/"
-        },
-        "files": [],
-        "classmap": [
-            "database/migrations",
-            "database/seeds"
-        ]
+        }
     },
     "require": {
         "php": ">=7.1.0",

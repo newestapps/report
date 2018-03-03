@@ -5,6 +5,7 @@ Template for generating basic invoices with a list of items.
 OSB: *All options are optional, the template will adjust among all this properties. All available properties are listed below, with examples.*
 
 ```php
+
     $id = 123456;
 
     $invoice = new \Newestapps\Report\Templates\BasicInvoice1( $id );

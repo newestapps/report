@@ -6,28 +6,28 @@
     <style>
 
         /*header {*/
-            /*position: fixed;*/
-            /*top: -60px;*/
-            /*left: 0px;*/
-            /*right: 0px;*/
-            /*background-color: lightblue;*/
-            /*height: 50px;*/
+        /*position: fixed;*/
+        /*top: -60px;*/
+        /*left: 0px;*/
+        /*right: 0px;*/
+        /*background-color: lightblue;*/
+        /*height: 50px;*/
         /*}*/
 
         /*footer {*/
-            /*position: fixed;*/
-            /*bottom: -60px;*/
-            /*left: 0px;*/
-            /*right: 0px;*/
-            /*background-color: lightblue;*/
-            /*height: 50px;*/
+        /*position: fixed;*/
+        /*bottom: -60px;*/
+        /*left: 0px;*/
+        /*right: 0px;*/
+        /*background-color: lightblue;*/
+        /*height: 50px;*/
         /*}*/
 
-        p {
+        .page-break {
             page-break-after: always;
         }
 
-        p:last-child {
+        .page-break:last-child {
             page-break-after: never;
         }
 
@@ -39,6 +39,7 @@
               {{ $attr }}: {{ $value }};
         @endforeach
         @endif
+
 
         }
 

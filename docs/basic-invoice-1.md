@@ -18,7 +18,7 @@ OSB: *All options are optional, the template will adjust among all this properti
     // The second parameter, is a boolean indicating if you want to print a Barcode with this reference code on 
     // invoice footer
     // The third parameter, is the Barcode type (default is: CODE 128).
-    $report->setReference('98231879312789123', true);
+    $invoice->setReference('98231879312789123', true);
 
     $invoice->setCreatedAt(\Carbon\Carbon::now()->subDays(10));
     

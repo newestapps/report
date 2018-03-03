@@ -21,7 +21,7 @@
         }
     ],
     "support": {
-        "email" : "contato@newestapps.com.br"
+        "email": "contato@newestapps.com.br"
     },
     "autoload": {
         "psr-4": {
@@ -32,7 +32,8 @@
         "php": ">=7.1.0",
         "laravel/framework": ">=5.5.32",
         "newestapps/core": "dev-master",
-        "barryvdh/laravel-dompdf": "^0.8.2"
+        "barryvdh/laravel-dompdf": "^0.8.2",
+        "picqer/php-barcode-generator": "^0.2.2"
     },
     "extra": {
         "laravel": {

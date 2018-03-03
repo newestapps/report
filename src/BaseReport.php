@@ -20,10 +20,13 @@ abstract class BaseReport
 
     /**
      * Report constructor.
+     * @param bool $renderOnCreate
      */
-    public function __construct()
+    public function __construct($renderOnCreate = true)
     {
-        $this->render($this->handleData());
+        if ($renderOnCreate) {
+            $this->render($this->handleData());
+        }
     }
 
     /**
@@ -47,25 +50,39 @@ abstract class BaseReport
      */
     protected function render($data)
     {
-        $this->pdf = App::make('dompdf.wrapper');
+        $this->pdf = app('dompdf.wrapper');
         $this->pdf->loadView($this->getFullViewPath(), $data);
         $this->afterRender($this->pdf);
     }
 
-    public function stream()
+    public function stream($filename = 'document.pdf')
     {
-        return $this->pdf->stream();
+        return $this->pdf->stream($filename);
+    }
+
+    public function save($filename)
+    {
+        return $this->pdf->save($filename);
+    }
+
+    public function download($filename)
+    {
+        return $this->pdf->download($filename);
+    }
+
+    public function outputAsString()
+    {
+        return $this->pdf->output();
     }
 
     public function getFullViewPath()
     {
-        return "reports.{$this->view}";
+        return "{$this->view}";
     }
 
-    private function configurePaper(PDF $pdf)
+    protected function configurePaper(PDF $pdf)
     {
-        $pdf->setOrientation('portrait');
-        $pdf->setPaper('a4');
+        $pdf->setPaper('A4', 'portrait');
     }
 
 }

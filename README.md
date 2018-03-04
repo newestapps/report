@@ -7,6 +7,7 @@ A series of pre-defined templates are available, with all logic for data fill, t
 # List of templates built-in
 
 - [Basic Invoice #1](docs/basic-invoice-1.md)
+- [Awesome Invoice #1](docs/awesome-invoice-1.md)
 
 # Creating custom template
 

@@ -1,4 +1,4 @@
-# Template: Basic Invoice 1 
+# Template: Basic Invoice #1 
 
 Template for generating basic invoices with a list of items.
 

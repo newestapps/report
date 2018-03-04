@@ -13,33 +13,37 @@ use Picqer\Barcode\BarcodeGenerator;
 class BasicInvoice1 extends BaseReport
 {
 
-    private $customer = [];
+    protected $customer = [];
 
-    private $items = [];
+    protected $items = [];
 
-    private $totalAmount = 0;
+    protected $totalAmount = 0;
 
-    private $title = 'Invoice';
+    protected $title = 'Invoice';
 
-    private $logoUrl = null;
+    protected $logoUrl = null;
 
-    private $createdAt = null;
+    protected $createdAt = null;
 
-    private $finishedAt = null;
+    protected $finishedAt = null;
 
-    private $reference = null;
+    protected $reference = null;
 
-    private $attachBarcode = false;
+    protected $attachBarcode = false;
 
-    private $barcodeType = BarcodeGenerator::TYPE_CODE_128;
+    protected $barcodeType = BarcodeGenerator::TYPE_CODE_128;
 
-    private $extraFees = 0;
+    protected $extraFees = 0;
 
-    private $notes = null;
+    protected $discounts = 0;
+
+    protected $notes = null;
+
+    protected $company = [];
 
     protected $view = 'nw-report::templates.basic-invoice-1.basic-invoice-1';
 
-    private $id;
+    protected $id;
 
     /**
      * BasicInvoice1Report constructor.
@@ -118,11 +122,11 @@ class BasicInvoice1 extends BaseReport
      */
     public function setLogo($logoUrl)
     {
-        if (filter_var($logoUrl, FILTER_VALIDATE_URL)) {
-            $this->logoUrl = $logoUrl;
-        } else {
-            $this->logoUrl = asset($logoUrl);
-        }
+//        if (filter_var($logoUrl, FILTER_VALIDATE_URL)) {
+        $this->logoUrl = $logoUrl;
+//        } else {
+//            $this->logoUrl = $logoUrl;
+//        }
 
         return $this;
     }
@@ -229,6 +233,29 @@ class BasicInvoice1 extends BaseReport
         return $this;
     }
 
+    public function setCompany($name = null, $email = null, $address = null, $website = null, $phone = null)
+    {
+        if (is_array($name)) {
+            $this->company = [
+                'website' => (isset($name['website']) ? ($name['website']) : null),
+                'name' => (isset($name['name']) ? ($name['name']) : null),
+                'email' => (isset($name['email']) ? ($name['email']) : null),
+                'address' => (isset($name['address']) ? ($name['address']) : null),
+                'phone' => (isset($name['phone']) ? ($name['phone']) : null),
+            ];
+        } else {
+            $this->company = [
+                'website' => $website,
+                'name' => $name,
+                'email' => $email,
+                'address' => $address,
+                'phone' => $phone,
+            ];
+        }
+
+        return $this;
+    }
+
     public function renderInvoice()
     {
         $this->render($this->handleData());
@@ -300,6 +327,27 @@ class BasicInvoice1 extends BaseReport
     public function useNewestappsLogo()
     {
         $this->logoUrl = __DIR__.'/../../resources/images/newestapps-logo-invoice.png';
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDiscounts(): int
+    {
+        return $this->discounts;
+    }
+
+    /**
+     * @param int $discounts
+     * @return $this
+     */
+    public function setDiscounts(int $discounts)
+    {
+        $this->discounts = $discounts;
+
+        return $this;
     }
 
     /**
@@ -314,6 +362,7 @@ class BasicInvoice1 extends BaseReport
             'reference' => $this->reference,
             'title' => $this->title,
             'customer' => $this->customer,
+            'company' => $this->company,
             'items' => $this->items,
             'logoUrl' => $this->logoUrl,
             'createdAt' => $this->createdAt,
@@ -322,6 +371,7 @@ class BasicInvoice1 extends BaseReport
             'attachBarcode' => $this->attachBarcode,
             'barcodeType' => $this->barcodeType,
             'extraFees' => (!is_numeric($this->extraFees)) ? (0) : ($this->extraFees),
+            'discounts' => (!is_numeric($this->discounts)) ? (0) : ($this->discounts),
             'totalAmount' => (!is_numeric($this->totalAmount)) ? (0) : ($this->totalAmount),
         ];
     }

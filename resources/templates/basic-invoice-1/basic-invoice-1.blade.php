@@ -331,6 +331,13 @@
                 </td>
                 <td class="total-amount"> {{ number_format($extraFees, 2, ',', '.') }} BRL</td>
             </tr>
+
+            <tr>
+                <td colspan="4" class="total-label">
+                    <span>Descontos</span>
+                </td>
+                <td class="total-amount"> {{ number_format($discounts, 2, ',', '.') }} BRL</td>
+            </tr>
             </tbody>
             @endif
 
@@ -339,7 +346,7 @@
             <tr>
                 <td colspan="4" class="total-label total-important">Total</td>
                 <td class="total-amount total-important">
-                    {{ number_format($totalAmount + $extraFees, 2, ',', '.') }} BRL
+                    {{ number_format($totalAmount + $extraFees - $discounts, 2, ',', '.') }} BRL
                 </td>
             </tr>
             </tbody>
